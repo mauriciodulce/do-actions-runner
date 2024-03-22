@@ -5,7 +5,6 @@ spec:
     envs:
     - key: TOKEN
       scope: RUN_TIME
-      type: SECRET
       value: GitHub personal access token
     - key: OWNER
       scope: RUN_TIME
