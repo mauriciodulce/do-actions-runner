@@ -46,8 +46,6 @@ RUN curl -sL https://raw.githubusercontent.com/mklement0/n-install/stable/bin/n-
     && npm install -g npm \
     && rm -rf ~/n
 
-RUN service docker start
-
 WORKDIR /home/actions/actions-runner
 
 USER actions
