@@ -1,4 +1,4 @@
-FROM docker:dind
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get install -y tzdata && \
@@ -45,6 +45,8 @@ RUN curl -sL https://raw.githubusercontent.com/mklement0/n-install/stable/bin/n-
     && npm install -g --save-dev webpack webpack-cli \
     && npm install -g npm \
     && rm -rf ~/n
+
+RUN service docker start
 
 WORKDIR /home/actions/actions-runner
 
