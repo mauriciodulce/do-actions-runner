@@ -22,6 +22,18 @@ RUN \
     && ./bin/installdependencies.sh \
     && chown -R actions ~actions
 
+RUN apt-get update && \
+    apt-get install -y \
+    gnupg \
+    lsb-release && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable" && \
+    apt-get update && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io
+
 RUN add-apt-repository ppa:git-core/ppa -y \
     && apt-get update -y && apt-get install -y --no-install-recommends \
     build-essential git
